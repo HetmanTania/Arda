@@ -1,0 +1,66 @@
+@-webkit-keyframes anim-btm-type2 {
+  to {
+    width: 45rem;
+    height: 45rem;
+  }
+}
+
+@keyframes anim-btm-type2 {
+  to {
+    width: 45rem;
+    height: 45rem;
+  }
+}
+
+@-webkit-keyframes anim-btm-a {
+  to {
+    color: #fb7dc4;
+  }
+}
+
+@keyframes anim-btm-a {
+  to {
+    color: #fb7dc4;
+  }
+}
+
+@-webkit-keyframes anim-btm-type2-invers {
+  from {
+    width: 45rem;
+    height: 45rem;
+  }
+  to {
+    width: 5rem;
+    height: 5rem;
+  }
+}
+
+@keyframes anim-btm-type2-invers {
+  from {
+    width: 45rem;
+    height: 45rem;
+  }
+  to {
+    width: 5rem;
+    height: 5rem;
+  }
+}
+
+@-webkit-keyframes anim-btm-a-inser {
+  from {
+    color: #fb7dc4;
+  }
+  to {
+    color: #fff;
+  }
+}
+
+@keyframes anim-btm-a-inser {
+  from {
+    color: #fb7dc4;
+  }
+  to {
+    color: #fff;
+  }
+}
+/*# sourceMappingURL=mixin-variables.css.map */

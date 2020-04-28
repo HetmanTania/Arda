@@ -1,0 +1,966 @@
+@import "mixin-variables";
+
+html {
+    font-size: 10px;
+}
+
+body {
+    font-family: $main-font;
+    overflow-x: hidden;
+}
+
+#dox-logo {
+    width: 7.2rem;
+}
+
+.dox-img {
+    img {
+        width: 100%;
+    }
+}
+
+.conteiner {
+    @include conteiner(130rem, 10rem);
+}
+
+#about-company {
+    height: 90rem;
+    padding-top: 6.5rem;
+
+    position: relative;
+    overflow: hidden;
+    @include bacground-img("img/br-about.png");
+    @media (max-width: 568px) {
+        background-position-y: 17rem;
+    }
+
+    header {
+        @include flex();
+        overflow: hidden;
+    }
+
+    #dropdown-nav-header {
+        ul {
+            @include flex(column, $aling: flex-start);
+            li {
+                margin: 2rem;
+                a {
+                    @include ref($blue, 2rem, 500, $pink);
+                }
+                div [data-header-search] {
+                    @include bacground-img("img/searh.svg");
+                    width: 2rem;
+                    height: 2rem;
+                    cursor: pointer;
+                }
+                .close {
+                    font-size: 2rem;
+                    font-weight: 700;
+                    color: $pink;
+                    border: none;
+                    background-color: transparent;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    #nav-header {
+        ul {
+            @include flex();
+            button {
+                font-size: 2rem !important;
+                color: $blue !important;
+                background-color: transparent !important;
+            }
+            li {
+                margin: 0 2rem;
+
+                a {
+                    @include ref($white, 1.8rem, 500, $pink);
+                }
+                #header-search {
+                    @include bacground-img("img/searh.svg");
+                    width: 2rem;
+                    height: 2rem;
+                    cursor: pointer;
+                }
+                div [data-header-search] {
+                    @include bacground-img("img/searh.svg");
+                    width: 2rem;
+                    height: 2rem;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    .menu {
+        display: none;
+    }
+    #dropdown {
+        width: 20rem;
+        height: 100vh;
+
+        position: absolute;
+        right: -26rem;
+        top: -1rem;
+
+        background-color: $white;
+    }
+    .showDropdown {
+        animation: anim-dropdown 0.5s forwards;
+    }
+    .showDropdownDisable {
+        animation: anim-dropdownDisable 0.5s forwards;
+    }
+}
+
+@keyframes anim-dropdown {
+    from {
+        right: -100%;
+    }
+    to {
+        right: 0;
+    }
+}
+
+@keyframes anim-dropdownDisable {
+    from {
+        right: 0;
+    }
+    to {
+        right: -100%;
+    }
+}
+
+#learm-more {
+    width: 65rem;
+    height: 45rem;
+    margin-top: 10rem;
+    @include flex(column, $justify: flex-start, $aling: flex-start);
+
+    h2 {
+        @include text($white, 5rem, 700, $letter-spacing: 0.2rem);
+        margin-bottom: 3rem;
+    }
+
+    p {
+        @include text($white, 1.8rem, $height: 4rem);
+        margin-bottom: 5rem;
+    }
+
+    #btn-learn-more {
+        @include ref($gray-blue, 2rem);
+        @include button(22rem, $white);
+        @include flex($justify: center);
+        position: relative;
+        overflow: hidden;
+        a {
+            @include ref(#fb7dc4, 2rem);
+            z-index: 100;
+            text-transform: uppercase;
+            animation: btn-hover-ref-insert 1s forwards;
+        }
+
+        &::before,
+        &::after {
+            content: "";
+            width: 2rem;
+            height: 2rem;
+            position: absolute;
+            display: inline-block;
+            border-radius: 50%;
+
+            background-color: #fb7dc4;
+            transition: 1s;
+            animation-fill-mode: forwards;
+        }
+        &::before {
+            transform: translate(-13rem);
+            animation: beafore-left-btnAnim-insert 1s;
+        }
+        &::after {
+            transform: translate(13rem);
+            animation: beafore-right-btnAnim-insert 1s;
+        }
+        &:hover a {
+            animation-name: btn-hover-ref;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+        }
+        &:hover::before {
+            animation-name: beafore-left-btnAnim;
+            animation-fill-mode: forwards;
+            animation-duration: 1s;
+        }
+        &:hover::after {
+            animation-name: beafore-right-btnAnim;
+            animation-fill-mode: forwards;
+            animation-duration: 1s;
+        }
+    }
+}
+@keyframes beafore-left-btnAnim-insert {
+    from {
+        left: 100%;
+        width: 20rem;
+        height: 20rem;
+    }
+    50% {
+        width: 5rem;
+        height: 5rem;
+    }
+    to {
+        width: 2rem;
+        height: 2rem;
+        left: 25%;
+    }
+}
+
+@keyframes beafore-right-btnAnim-insert {
+    from {
+        right: 100%;
+        width: 20rem;
+        height: 20rem;
+    }
+    50% {
+        width: 5rem;
+        height: 5rem;
+    }
+    to {
+        width: 2rem;
+        height: 2rem;
+        right: 25%;
+    }
+}
+
+@keyframes btn-hover-ref {
+    to {
+        color: #fff;
+    }
+}
+@keyframes btn-hover-ref-insert {
+    from {
+        color: $white;
+    }
+    to {
+        color: $pink;
+    }
+}
+@keyframes beafore-right-btnAnim {
+    from {
+        width: 2rem;
+        height: 2rem;
+        right: 25%;
+    }
+    50% {
+        width: 5rem;
+        height: 5rem;
+    }
+    to {
+        right: 100%;
+        width: 20rem;
+        height: 20rem;
+    }
+}
+
+@keyframes beafore-left-btnAnim {
+    from {
+        width: 2rem;
+        height: 2rem;
+        left: 25%;
+    }
+    50% {
+        width: 5rem;
+        height: 5rem;
+    }
+    to {
+        left: 100%;
+        width: 20rem;
+        height: 20rem;
+    }
+}
+
+#advantages {
+    height: 225rem;
+    margin-top: 10rem;
+    @include bacground-img("img/br-adventage2.png");
+    background-position-x: center;
+
+    h2 {
+        @include text($gray, 3.6rem, 600, 4rem, 0.2rem);
+        max-width: 40rem;
+        margin: 0 auto;
+        margin-bottom: 10rem;
+        text-align: center;
+    }
+
+    .internal-advantages {
+        @include flex($justify: space-around);
+
+        .internal-dox-advantages {
+            // width: 45%;
+            margin: 2rem;
+            display: inline-block;
+        }
+
+        .dox-advantages {
+            @include flex();
+            flex-wrap: wrap;
+        }
+
+        .dox-advantage {
+            margin: 5rem auto;
+            max-width: 40rem;
+            height: 65rem;
+            background-color: $white;
+            border-radius: 3rem 0 3rem 3rem;
+            box-shadow: 0px 27px 20px 0px rgba(207, 216, 220, 0.15);
+            @include flex(column, space-around);
+
+            .img-num {
+                height: 15rem;
+                @include flex($justify: center);
+
+                .dox-img {
+                    width: 10rem;
+                }
+                .num-advantage {
+                    @include text($ligth-white, 15rem, 600, inherit);
+                    opacity: 0.3;
+                    height: 15rem;
+                }
+            }
+            .text-advantage {
+                height: 50%;
+                margin: 0 5rem;
+                @include flex(column, space-around, flex-start);
+
+                h3 {
+                    @include text($gray, 2.4rem, 600);
+                }
+                p {
+                    @include text($light-gray-blue, 1.8rem, 500, 3.5rem);
+                }
+            }
+        }
+    }
+    #btn-contact {
+        display: block;
+        margin: 0 auto;
+        a {
+            @include ref($white, 2rem, 500);
+        }
+        @include flex($justify: center);
+        @include button(28rem, $blue);
+        @include mixin-anim-btm-type2($white);
+    }
+}
+
+.amin-form {
+    animation: anim-form-left 2s;
+    animation-fill-mode: forwards;
+}
+
+.anim-map {
+    animation: anim-map-left 3s;
+    animation-fill-mode: forwards;
+
+    @media (max-width: 2015px) and (min-width: 1100px) {
+        animation: anim-map-tablet 3s;
+        animation-fill-mode: forwards;
+    }
+
+    @media (max-width: 1099px) and (min-width: 950px) {
+        animation: anim-map-tablet3 3s;
+        animation-fill-mode: forwards;
+    }
+    @media (max-width: 950px) and (min-width: 919px) {
+        animation: anim-map-tablet3 3s;
+        animation-fill-mode: forwards;
+    }
+    @media (max-width: 920px) and (min-width: 200px) {
+        animation: anim-map-phon2 3s;
+        animation-fill-mode: forwards;
+    }
+    @media (max-width: 649px) {
+        animation: anim-map-left 3s;
+        animation-fill-mode: forwards;
+    }
+}
+
+@keyframes anim-map-left {
+    from {
+        left: 110%;
+    }
+    to {
+        left: 0rem;
+    }
+}
+@keyframes anim-map-tablet {
+    from {
+        left: 110%;
+    }
+    to {
+        left: 12%;
+    }
+}
+@keyframes anim-map-tablet2 {
+    from {
+        left: 110%;
+    }
+    to {
+        left: 40%;
+    }
+}
+@keyframes anim-map-tablet3 {
+    from {
+        left: 110%;
+    }
+    to {
+        left: 15%;
+    }
+}
+@keyframes anim-map-phon {
+    from {
+        left: 110%;
+    }
+    to {
+        left: 15%;
+    }
+}
+@keyframes anim-map-phon2 {
+    from {
+        left: 110%;
+    }
+    to {
+        left: 10%;
+    }
+}
+@keyframes anim-map-phon3 {
+    from {
+        left: 110%;
+    }
+    to {
+        left: 20%;
+    }
+}
+@keyframes anim-form-left {
+    from {
+        left: 110%;
+    }
+    to {
+        left: -5rem;
+    }
+}
+
+#form-footer {
+    overflow: hidden;
+    height: 140rem;
+    position: relative;
+    box-shadow: 0px 42px 35px 0px rgba(31, 110, 227, 0.15);
+
+    @include bacground-img("img/br-form-footer.jpg");
+    @include bacground-img("img/br-form-footer.jpg");
+    .conteiner {
+        height: auto;
+    }
+    form {
+        position: relative;
+        left: 113%;
+        max-width: 130rem;
+        height: 75.5rem;
+        margin: 0 auto;
+        @include bacground-img("img/br-form.png");
+
+        border-radius: 3rem 0 3rem 3rem;
+        box-shadow: 0px 42px 35px 0px rgba(31, 110, 227, 0.4);
+
+        .inner-form {
+            height: 100%;
+
+            #info-form {
+                padding-top: 10rem;
+                h3 {
+                    margin-bottom: 5rem;
+                    @include text($white, 3.6rem, 600, 4.5rem, 0.2rem);
+                }
+
+                p {
+                    width: 80%;
+                    @include text($violet, 1.6rem, $height: 2.6rem);
+                }
+            }
+
+            #input-form {
+                padding-top: 5rem;
+                @include flex($justify: flex-start);
+                label {
+                    @include text($white, 1.6rem, 500);
+                    text-transform: uppercase;
+                }
+                input:not([type="submit"]) {
+                    width: 86%;
+                    min-width: 20rem;
+                    margin: 2rem 0;
+
+                    @include input();
+                }
+
+                .box-sub {
+                    width: 100%;
+                    @include flex($justify: flex-end);
+
+                    input[type="submit"] {
+                        @include button(18rem, $blue);
+                        @include text($white, 2rem, 500);
+                        border: none;
+                        margin-left: 12rem;
+                    }
+                }
+
+                textarea {
+                    margin: 2rem 0;
+                    width: 86%;
+                    min-width: 25rem;
+                    height: 21rem;
+                    @include input();
+
+                    &::placeholder {
+                        @include text($light-gray-blue, 1.6rem, $letter-spacing: 0.01rem);
+                        font-family: $main-font;
+                    }
+                }
+
+                .name-adress {
+                    margin-right: 4rem;
+                }
+                .messenge {
+                    @include flex(column, flex-start, flex-end);
+                }
+                .messenge,
+                .name-adress {
+                    height: 34.5rem;
+                    width: 50%;
+                }
+                .name,
+                .email {
+                    @include flex(column, flex-start, flex-start);
+                }
+            }
+        }
+    }
+
+    #map {
+        max-width: 50rem;
+        height: 58.5rem;
+        position: relative;
+        left: 110%;
+        top: -10rem;
+
+        @include bacground-img("img/b-map.png");
+        @include flex($aling: flex-end);
+        box-shadow: 0px 42px 35px 0px rgba(31, 110, 227, 0.15);
+        border-radius: 3rem 3rem 0 3rem;
+
+        // @media (max-width : 1065px) {
+        //     margin-top: -20rem !important;
+        // }
+        // @media (max-width: 1093px) {
+        //     margin-top: -71rem !important;
+        // }
+        // @media (max-width: 1215px) {
+        //     margin-top: -71rem;
+        // }
+        // @media (max-width: 920px) {
+        //   top: 5rem;
+        // }
+
+        .dox-map {
+            p {
+                margin: 3rem 6rem;
+            }
+            #sity {
+                @include text($white, 2rem, 500);
+            }
+
+            #adress {
+                width: 65%;
+                @include text($white, 1.6rem);
+            }
+
+            #phone {
+                @include text($white, 1.6rem);
+                margin-bottom: 5rem;
+            }
+        }
+    }
+    footer {
+        position: relative;
+        top: -73rem;
+    }
+}
+
+#innet-footer {
+    height: 14rem;
+    margin-top: 50rem;
+    border-top: 1px $white solid;
+    @include flex();
+
+    #compani-rights {
+        @include text($white, 1.4rem, $height: 2.4rem);
+    }
+
+    .icon-social {
+        @include flex();
+        & div {
+            width: 5rem;
+            height: 5rem;
+            margin: 0 1rem;
+        }
+        & div img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+.amin-showHeader {
+    animation: showHeader 1 ease-in delay iteration-count direction fill-mode;
+}
+
+@keyframes showHeader {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@media (min-width: 2000px) {
+    #about-company {
+        background-position-y: 60%;
+    }
+
+    #advantages {
+        .conteiner {
+            max-width: 230rem;
+        }
+        .internal-dox-advantages {
+            width: 21%;
+            .dox-advantage {
+                height: 65rem;
+            }
+        }
+        #btn-contact {
+            margin-top: 5rem;
+        }
+    }
+}
+
+@media (max-width: 2000px) and (min-width: 1100px) {
+    #advantages {
+        @include bacground-img("img/br-adventage2.png");
+        background-position-x: center;
+    }
+}
+@media (max-width: 1380px) {
+    #form-footer {
+        .inner-form {
+            width: 100% !important;
+        }
+
+        #innet-footer {
+            margin-top: 67rem;
+        }
+    }
+}
+
+@media (max-width: 1999px) {
+    #advantages {
+        .internal-advantages {
+            flex-wrap: wrap;
+        }
+    }
+}
+
+@media (max-width: 1400px) and (min-width: 1100px) {
+    #about-company {
+        background-position-x: -15rem;
+    }
+}
+
+@media (max-width: 1099px) and (min-width: 900px) {
+    #about-company {
+        height: 110rem;
+        background-position-x: -40rem;
+        #learm-more {
+            width: 65rem;
+
+            h2 {
+                margin-bottom: 8rem;
+            }
+            p {
+                margin-bottom: 8rem;
+            }
+        }
+    }
+    #advantages {
+        .internal-dox-advantages {
+            width: 50%;
+        }
+    }
+}
+
+@media (max-width: 1099px) {
+    html {
+        font-size: 9px;
+    }
+    #advantages {
+        height: 375rem;
+    }
+
+    // #form-footer {
+    //     height: 170rem;
+    //     form {
+    //         height: 95.5rem;
+    //         #info-form {
+    //             padding-top: 5rem !important;
+    //         }
+    //         .inner-form {
+    //             padding-top: 3rem;
+    //             #input-form {
+    //                 padding-top: 3rem;
+    //                 align-items: flex-start;
+    //                 flex-direction: column;
+
+    //                 .name-adress {
+    //                     width: 100%;
+    //                     height: 27.5rem;
+    //                 }
+
+    //                 .messenge {
+    //                     width: 100%;
+    //                     align-items: flex-start;
+    //                     .box-sub {
+    //                         justify-content: flex-start;
+    //                         input {
+    //                             margin: 0;
+    //                         }
+    //                     }
+    //                 }
+    //             }
+    //         }
+    //     }
+    //}
+}
+@media (max-width: 970px) {
+    #about-company {
+        header {
+            #nav-header {
+                display: none;
+            }
+            .menu {
+                cursor: pointer;
+                display: block;
+
+                width: 4rem;
+                img {
+                    width: 100%;
+                }
+            }
+        }
+
+        #learm-more {
+            width: 80%;
+        }
+    }
+
+    #form-footer {
+        padding: 0 5rem;
+        .conteiner {
+            padding: 0;
+            form {
+                width: 100%;
+                position: static;
+                .conteiner {
+                    padding: 0px 5rem;
+
+                    .inner-form {
+                        #info-form {
+                            h3,
+                            p {
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        #map {
+            top: -15rem;
+        }
+    }
+}
+
+@media (max-width: 850px) {
+    #form-footer {
+        height: 155rem;
+        form {
+            .inner-form {
+                #info-form {
+                    padding-top: 5rem;
+                }
+                #input-form {
+                    padding-top: 2rem;
+                    flex-direction: column;
+                    .name-adress,
+                    .messenge {
+                        height: auto;
+                        width: 100%;
+                        padding-left: 4rem;
+                        input:not([type="submit"]) {
+                            margin: 1rem 0;
+                            padding: 1.5rem;
+                            font-size: 1.4rem;
+                        }
+                    }
+                    .messenge {
+                        padding-left: 0;
+                        align-items: flex-start;
+
+                        textarea {
+                            width: 84%;
+                            height: 15rem;
+                        }
+
+                        .box-sub {
+                            width: 92%;
+                        }
+                    }
+                }
+            }
+        }
+        #map {
+            top: 5rem;
+        }
+        footer {
+            top: -58rem;
+        }
+    }
+
+    // #form-footer {
+    //     height: 165rem;
+    //     #map {
+    //         width: 100%;
+    //     }
+    //     #innet-footer {
+    //         margin-top: 63rem;
+    //     }
+    //}
+}
+@media (max-width: 649px) {
+    #form-footer {
+        #form-questions {
+            .conteiner {
+                .inner-form {
+                    #info-form {
+                        padding-top: 3rem;
+                        h3 {
+                            margin-bottom: 3rem;
+                        }
+                    }
+                }
+            }
+        }
+        #map {
+            max-width: none;
+            left: 0;
+        }
+    }
+}
+
+@media (max-width: 630px) {
+    .dox-advantage {
+        width: 40rem;
+    }
+    #about-company {
+        #learm-more {
+            width: 90%;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    #form-footer {
+        padding: 0px 3rem;
+        .conteiner {
+            padding: 0;
+            form {
+                .conteiner {
+                    padding: 0px 3rem;
+                    .inner-form {
+                        #info-form {
+                            h3,
+                            p {
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 420px) {
+    .conteiner {
+        padding: 0px 5rem;
+    }
+
+    #advantages {
+        background-image: none;
+        background-color: $white;
+        margin: 15rem auto;
+        max-width: 35rem;
+        .internal-dox-advantages {
+            margin: 2rem;
+            .dox-advantage {
+                .text-advantage {
+                    margin: 0 3rem;
+                }
+            }
+        }
+    }
+    #form-footer {
+        #form-questions {
+            .conteiner {
+                .inner-form {
+                    #info-form {
+                        padding-top: 3rem;
+                        h3 {
+                            font-size: 24px;
+                            margin-bottom: 1rem;
+                        }
+                    }
+                }
+            }
+        }
+        #map{
+            background-position: 50%;
+        }
+    }
+}
+
+@media (max-width: 360px) {
+    #learm-more {
+        h2 {
+            font-size: 3.2rem;
+        }
+    }
+
+    html {
+        font-size: 7px;
+    }
+}
