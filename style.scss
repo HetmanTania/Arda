@@ -456,7 +456,7 @@ body {
 
 #form-footer {
     overflow: hidden;
-    height: 140rem;
+    height: 145rem;
     position: relative;
     box-shadow: 0px 42px 35px 0px rgba(31, 110, 227, 0.15);
 
@@ -563,19 +563,6 @@ body {
         box-shadow: 0px 42px 35px 0px rgba(31, 110, 227, 0.15);
         border-radius: 3rem 3rem 0 3rem;
 
-        // @media (max-width : 1065px) {
-        //     margin-top: -20rem !important;
-        // }
-        // @media (max-width: 1093px) {
-        //     margin-top: -71rem !important;
-        // }
-        // @media (max-width: 1215px) {
-        //     margin-top: -71rem;
-        // }
-        // @media (max-width: 920px) {
-        //   top: 5rem;
-        // }
-
         .dox-map {
             p {
                 margin: 3rem 6rem;
@@ -595,15 +582,17 @@ body {
             }
         }
     }
+
     footer {
         position: relative;
-        top: -73rem;
+        top: -5rem;
     }
+
 }
 
 #innet-footer {
     height: 14rem;
-    margin-top: 50rem;
+    // margin-top: 50rem;
     border-top: 1px $white solid;
     @include flex();
 
@@ -671,9 +660,12 @@ body {
             width: 100% !important;
         }
 
-        #innet-footer {
-            margin-top: 67rem;
-        }
+        // #innet-footer {
+        //     margin-top: 67rem;
+        // }
+        // footer{
+        //     top: 5px;
+        // }
     }
 }
 
@@ -720,40 +712,6 @@ body {
     #advantages {
         height: 375rem;
     }
-
-    // #form-footer {
-    //     height: 170rem;
-    //     form {
-    //         height: 95.5rem;
-    //         #info-form {
-    //             padding-top: 5rem !important;
-    //         }
-    //         .inner-form {
-    //             padding-top: 3rem;
-    //             #input-form {
-    //                 padding-top: 3rem;
-    //                 align-items: flex-start;
-    //                 flex-direction: column;
-
-    //                 .name-adress {
-    //                     width: 100%;
-    //                     height: 27.5rem;
-    //                 }
-
-    //                 .messenge {
-    //                     width: 100%;
-    //                     align-items: flex-start;
-    //                     .box-sub {
-    //                         justify-content: flex-start;
-    //                         input {
-    //                             margin: 0;
-    //                         }
-    //                     }
-    //                 }
-    //             }
-    //         }
-    //     }
-    //}
 }
 @media (max-width: 970px) {
     #about-company {
@@ -845,20 +803,10 @@ body {
         #map {
             top: 5rem;
         }
-        footer {
-            top: -58rem;
+        footer {    
+            top: 9rem;
         }
     }
-
-    // #form-footer {
-    //     height: 165rem;
-    //     #map {
-    //         width: 100%;
-    //     }
-    //     #innet-footer {
-    //         margin-top: 63rem;
-    //     }
-    //}
 }
 @media (max-width: 649px) {
     #form-footer {
